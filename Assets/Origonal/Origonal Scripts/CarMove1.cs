@@ -28,6 +28,7 @@ public class CarMove1 : MonoBehaviour
         if(other.CompareTag("Wall"))
         {
             transform.position = new Vector3(OrgPos,transform.position.y,transform.position.z);
+            
         }
             
     }

@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Freeway.unity
+  - enabled: 0
+    path: Assets/Scenes/Freeway.unity
     guid: a9f2c1af80601434283e7322219aba13
+  - enabled: 1
+    path: Assets/Scenes/Freeway Mod.unity
+    guid: 56ae1776362b0c74eae6f6ae00729fe8
   m_configObjects: {}

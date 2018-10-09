@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class P1Score : MonoBehaviour
+
 {
 
+	public AudioSource ScoreSound;
 	public GameObject Score0;
 	public GameObject Score1;
 	public GameObject Score2;
 	public GameObject Score3;
 	public GameObject Score4;
 	public GameObject Score5;
-	int Num = 0;
+	public GameObject Win;
+	int Num;
 
 	// Use this for initialization
 	void Start()
 	{
-
+		ScoreSound = GetComponent<AudioSource>();
+		Num = 0;
+		Win.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -80,6 +85,7 @@ public class P1Score : MonoBehaviour
 			Score3.SetActive(false);
 			Score4.SetActive(false);
 			Score5.SetActive(true);
+			Win.SetActive(true);
 		}
 	}
 
@@ -87,5 +93,6 @@ public class P1Score : MonoBehaviour
 	{
 		Num = Num + 1;
 		//print(Num);
+		ScoreSound.Play();
 	}
 }

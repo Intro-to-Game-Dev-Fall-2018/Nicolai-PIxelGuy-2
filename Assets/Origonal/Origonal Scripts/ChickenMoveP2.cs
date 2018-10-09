@@ -12,12 +12,16 @@ public class ChickenMoveP2: MonoBehaviour {
 	public float OrgPos;
 	private int score;
 	public Text DisplayScore;
+	public AudioSource ChickenHit;
+	public GameObject BlueWall;
+	public float BlueWallPos;
 	
 	// Use this for initialization
 	void Start () {
 		score = 0;
 		ChickenSpriteStatic.SetActive(true);
 		ChickenSpriteMoving.SetActive(false);
+		ChickenHit = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -41,6 +45,7 @@ public class ChickenMoveP2: MonoBehaviour {
 			ChickenSpriteStatic.SetActive(true);
 			ChickenSpriteMoving.SetActive(false);
 		}
+		BlueWall.transform.position = new Vector3(BlueWallPos, 0, 0);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -48,6 +53,8 @@ public class ChickenMoveP2: MonoBehaviour {
 		if (other.CompareTag("Car"))
 		{
 			transform.position = new Vector3(transform.position.x, OrgPos, transform.position.z);
+			ChickenHit.Play();
+			BlueWallPos = BlueWallPos - 1;
 		}
 
 		if (other.CompareTag("Finish"))
@@ -55,7 +62,7 @@ public class ChickenMoveP2: MonoBehaviour {
 			transform.position = new Vector3(transform.position.x, OrgPos, transform.position.z);
 			score = score + 1;
 			print("Score: " + score);
-			
+			BlueWallPos = -8;
 		}
 	}
 	
